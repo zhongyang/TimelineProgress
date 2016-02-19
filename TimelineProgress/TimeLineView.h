@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TimeLineAtom.h"
+#import "UIView+Utils.h"
 
 typedef void(^TimeLineAnimationFinished)();
 #define TimeLineAnimationFinished() ^()

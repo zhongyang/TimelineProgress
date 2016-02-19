@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    CGRect viewFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    CGRect viewFrame = CGRectMake(0, 0, self.view.width, self.view.height);
     TimeLineView *view = [[TimeLineView alloc] initWithFrame:viewFrame];
     view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:view];

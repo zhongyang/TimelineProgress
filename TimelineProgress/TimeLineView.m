@@ -35,7 +35,7 @@
 }
 
 - (void)setupUI {
-    _containView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    _containView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
     _containView.showsVerticalScrollIndicator = NO;
     _containView.showsHorizontalScrollIndicator = NO;
     [self addSubview:_containView];
@@ -69,13 +69,12 @@
                         [UIColor brownColor],
                         [UIColor orangeColor]];
 
-    CGRect frame = CGRectMake(0, _containView.contentSize.height, _containView.frame.size.width, 60.0f);
+    CGRect frame = CGRectMake(0, _containView.contentSize.height, _containView.width, 60.0f);
     TimeLineCell *cell = [[TimeLineCell alloc] initWithFrame:frame];
     cell.backgroundColor = colors[rand()%[colors count]];
 
     [_containView addSubview:cell];
-    [_containView setContentSize:CGSizeMake(_containView.frame.size.width,
-                                            cell.frame.origin.y + cell.frame.size.height)];
+    [_containView setContentSize:CGSizeMake(_containView.width, cell.bottom)];
 
     if (completed) {
         completed();

@@ -16,6 +16,7 @@
 		79FBBC761C76F8BA000FFC73 /* TimeLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBBC751C76F8BA000FFC73 /* TimeLineView.m */; };
 		79FBBC791C76F9C7000FFC73 /* TimeLineAtom.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBBC781C76F9C7000FFC73 /* TimeLineAtom.m */; };
 		79FBBC7C1C76F9E4000FFC73 /* TimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBBC7B1C76F9E4000FFC73 /* TimeLineCell.m */; };
+		79FBBC821C771A3F000FFC73 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBBC811C771A3F000FFC73 /* UIView+Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,9 @@
 		79FBBC781C76F9C7000FFC73 /* TimeLineAtom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineAtom.m; sourceTree = "<group>"; };
 		79FBBC7A1C76F9E4000FFC73 /* TimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineCell.h; sourceTree = "<group>"; };
 		79FBBC7B1C76F9E4000FFC73 /* TimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineCell.m; sourceTree = "<group>"; };
+		79FBBC7F1C7719AE000FFC73 /* TimelineMarco.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineMarco.h; sourceTree = "<group>"; };
+		79FBBC801C771A3F000FFC73 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
+		79FBBC811C771A3F000FFC73 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,12 +96,15 @@
 		79FBBC7D1C76F9EC000FFC73 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				79FBBC801C771A3F000FFC73 /* UIView+Utils.h */,
+				79FBBC811C771A3F000FFC73 /* UIView+Utils.m */,
 				79FBBC741C76F8BA000FFC73 /* TimeLineView.h */,
 				79FBBC751C76F8BA000FFC73 /* TimeLineView.m */,
 				79FBBC7A1C76F9E4000FFC73 /* TimeLineCell.h */,
 				79FBBC7B1C76F9E4000FFC73 /* TimeLineCell.m */,
 				79FBBC771C76F9C7000FFC73 /* TimeLineAtom.h */,
 				79FBBC781C76F9C7000FFC73 /* TimeLineAtom.m */,
+				79FBBC7F1C7719AE000FFC73 /* TimelineMarco.h */,
 			);
 			name = Timeline;
 			sourceTree = "<group>";
@@ -173,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79FBBC7C1C76F9E4000FFC73 /* TimeLineCell.m in Sources */,
+				79FBBC821C771A3F000FFC73 /* UIView+Utils.m in Sources */,
 				79FBBC791C76F9C7000FFC73 /* TimeLineAtom.m in Sources */,
 				79FBBC621C76F4E5000FFC73 /* ViewController.m in Sources */,
 				79FBBC5F1C76F4E5000FFC73 /* AppDelegate.m in Sources */,
@@ -324,6 +332,7 @@
 				79FBBC701C76F4E5000FFC73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
