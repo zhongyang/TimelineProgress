@@ -43,13 +43,43 @@
 
 - (void)addInitialAtoms:(NSArray *)atoms
           withAnimation:(BOOL)animated {
+     __block NSInteger index = 0;
 
+    __typeof__(self) __weak weakself = self;
+    __block void (^addAtom)(TimeLineAtom *atom, BOOL animated) = ^(TimeLineAtom *atom, BOOL animated) {
+        [weakself addAtom:atom withAnimation:animated completion:^{
+            index++;
+            if (index < [atoms count]) {
+                TimeLineAtom *atom = atoms[index];
+                addAtom(atom, animated);
+            }
+        }];
+    };
+
+    TimeLineAtom *atom = atoms[index];
+    addAtom(atom, animated);
 }
 
 - (void)addAtom:(TimeLineAtom *)atom
   withAnimation:(BOOL)animated
      completion:(TimeLineAnimationFinished)completed {
+    NSArray *colors = @[[UIColor  greenColor],
+                        [UIColor yellowColor],
+                        [UIColor magentaColor],
+                        [UIColor brownColor],
+                        [UIColor orangeColor]];
 
+    CGRect frame = CGRectMake(0, _containView.contentSize.height, _containView.frame.size.width, 60.0f);
+    TimeLineCell *cell = [[TimeLineCell alloc] initWithFrame:frame];
+    cell.backgroundColor = colors[rand()%[colors count]];
+
+    [_containView addSubview:cell];
+    [_containView setContentSize:CGSizeMake(_containView.frame.size.width,
+                                            cell.frame.origin.y + cell.frame.size.height)];
+
+    if (completed) {
+        completed();
+    }
 }
 
 @end

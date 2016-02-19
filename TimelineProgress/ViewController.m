@@ -22,6 +22,13 @@
     TimeLineView *view = [[TimeLineView alloc] initWithFrame:viewFrame];
     view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:view];
+
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (int i=0; i<10; i++) {
+        TimeLineAtom *atom = [[TimeLineAtom alloc] init];
+        [array addObject:atom];
+    }
+    [view addInitialAtoms:array withAnimation:YES];
 }
 
 - (void)didReceiveMemoryWarning {
