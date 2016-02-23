@@ -24,16 +24,12 @@
     [self.view addSubview:view];
 
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (int i=0; i<10; i++) {
+    for (int i=0; i<30; i++) {
         TimeLineAtom *atom = [[TimeLineAtom alloc] init];
+        atom.text = [NSString stringWithFormat:@"HELLO %d", i];
         [array addObject:atom];
     }
     [view addInitialAtoms:array withAnimation:YES];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
