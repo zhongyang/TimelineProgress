@@ -99,9 +99,7 @@
         textView.verticalInset = itemIconHorizontalInset;
 
         [textView display:atom firstAtom:firstItem withAnimation:animated withFinish:^(BOOL finished) {
-            if (completed) {
-                completed();
-            }
+            __void_block_return(completed);
         }];
     };
 

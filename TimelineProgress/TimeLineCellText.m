@@ -14,6 +14,7 @@
 #import "JSQMessagesMediaViewBubbleImageMasker.h"
 #import <pop/POP.h>
 #import "TimelineMarco.h"
+#import "TimeLineAnimation.h"
 
 @interface TimeLineCellText () {
     UIImageView *_bubbleImageView;
@@ -54,10 +55,7 @@
 
     UIImage *originBubbleImage = [UIImage jsq_bubbleRegularStrokedTaillessImage];
 
-    frame = CGRectMake(originBubbleImage.size.width/2,
-                       self.verticalInset,
-                       self.width-originBubbleImage.size.width,
-                       self.height-2*self.verticalInset);
+    frame = CGRectMake(originBubbleImage.size.width/2,  self.verticalInset, self.width-originBubbleImage.size.width, self.height-2*self.verticalInset);
     UILabel *textLabel = [[UILabel alloc] initWithFrame:frame];
     [self addSubview:textLabel];
     textLabel.font = [UIFont systemFontOfSize:14.0f];
@@ -65,7 +63,10 @@
     textLabel.numberOfLines = 0;
 
     if (animated) {
-        [self addFrameAnimation:_bubbleImageView duration:0.5f complete:^{
+        CGRect originFrame = CGRectMake(_bubbleImageView.left, _bubbleImageView.top, 0, 0);
+        CGRect destFrame = _bubbleImageView.frame;
+        [_bubbleImageView setFrame:originFrame];
+        [TimeLineAnimation addFrameAnimation:_bubbleImageView originFrame:originFrame destFrame:destFrame duration:0.5f complete:^{
             textLabel.text = atom.text;
             __bool_block_return(finish, YES);
         }];
@@ -73,39 +74,5 @@
         __bool_block_return(finish, YES);
     }
 }
-
-- (void)addFrameAnimation:(UIView *)view duration:(CGFloat)duration complete:(void (^)(void))completed {
-    CGRect targetFrame = view.frame;
-    [view setFrame:CGRectMake(targetFrame.origin.x, targetFrame.origin.y, 0.0f, 0.0f)];
-
-    POPBasicAnimation *opacityAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewFrame];
-    opacityAnimation.fromValue = [NSValue valueWithCGRect:view.frame];;
-    opacityAnimation.toValue = [NSValue valueWithCGRect:targetFrame];;
-    opacityAnimation.duration = duration;
-
-    opacityAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {
-        if (completed) {
-            completed();
-        }
-    };
-
-    [view.layer pop_addAnimation:opacityAnimation forKey:@"opacityAnimation"];
-}
-
-- (void)addAlphaAnimation:(UIView *)view duration:(CGFloat)duration complete:(void (^)(void))completed {
-    POPBasicAnimation *opacityAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
-    opacityAnimation.fromValue = @(0);
-    opacityAnimation.toValue = @(1);
-    opacityAnimation.duration = duration;
-
-    opacityAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {
-        if (completed) {
-            completed();
-        }
-    };
-
-    [view.layer pop_addAnimation:opacityAnimation forKey:@"opacityAnimation"];
-}
-
 
 @end

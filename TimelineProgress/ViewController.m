@@ -24,7 +24,7 @@
     [self.view addSubview:view];
 
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (int i=0; i<30; i++) {
+    for (int i=0; i<20; i++) {
         TimeLineAtom *atom = [[TimeLineAtom alloc] init];
         atom.text = [NSString stringWithFormat:@"HELLO %d", i];
         [array addObject:atom];

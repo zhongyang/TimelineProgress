@@ -10,6 +10,7 @@
 #import "UIView+Utils.h"
 #import <pop/POP.h>
 #import "TimelineMarco.h"
+#import "TimeLineAnimation.h"
 
 @interface TimeLineCellImage () {
     
@@ -54,14 +55,15 @@
 
     if (animated) {
         [imageView setAlpha:0.0f];
-        __weak_self;
+
         if (firstAtom) {
-            [self addAlphaAnimation:imageView duration:0.5f complete:^{
+            [TimeLineAnimation addAlphaAnimation:imageView originAlpha:0.0f destAlpha:1.0f duration:0.5f complete:^{
                 __bool_block_return(finish, YES);
             }];
         } else {
-            [self addFrameAnimation:lineView duration:0.5f complete:^{
-                [weakself addAlphaAnimation:imageView duration:0.6f complete:^{
+            CGRect originFrame = CGRectMake(lineView.left, lineView.top, lineView.width, 0);
+            [TimeLineAnimation addFrameAnimation:lineView originFrame:originFrame destFrame:lineView.frame duration:0.5f complete:^{
+                [TimeLineAnimation addAlphaAnimation:imageView originAlpha:0.0f destAlpha:1.0f duration:0.5f complete:^{
                     __bool_block_return(finish, YES);
                 }];
             }];
@@ -69,40 +71,6 @@
     } else {
         __bool_block_return(finish, YES);
     }
-}
-
-- (void)addAlphaAnimation:(UIView *)view duration:(CGFloat)duration complete:(void (^)(void))completed {
-    POPBasicAnimation *opacityAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
-    opacityAnimation.fromValue = @(0);
-    opacityAnimation.toValue = @(1);
-    opacityAnimation.duration = duration;
-
-    opacityAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {
-        if (completed) {
-            completed();
-        }
-    };
-
-    [view.layer pop_addAnimation:opacityAnimation forKey:@"opacityAnimation"];
-}
-
-- (void)addFrameAnimation:(UIView *)view duration:(CGFloat)duration complete:(void (^)(void))completed {
-    CGRect targetFrame = view.frame;
-    [view setFrame:CGRectMake(targetFrame.origin.x, targetFrame.origin.y, targetFrame.size.width, 0)];
-    [view setHidden:NO];
-
-    POPBasicAnimation *opacityAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewFrame];
-    opacityAnimation.fromValue = [NSValue valueWithCGRect:view.frame];;
-    opacityAnimation.toValue = [NSValue valueWithCGRect:targetFrame];;
-    opacityAnimation.duration = duration;
-
-    opacityAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {
-        if (completed) {
-            completed();
-        }
-    };
-
-    [view.layer pop_addAnimation:opacityAnimation forKey:@"opacityAnimation"];
 }
 
 @end

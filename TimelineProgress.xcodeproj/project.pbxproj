@@ -72,6 +72,7 @@
 		79011B771C7C3F1300108B52 /* POPSpringAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79011B5E1C7C3F1300108B52 /* POPSpringAnimation.mm */; };
 		79011B781C7C3F1300108B52 /* POPVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79011B621C7C3F1300108B52 /* POPVector.mm */; };
 		79011B7E1C7C41B600108B52 /* TransformationMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79011B7B1C7C41B600108B52 /* TransformationMatrix.cpp */; };
+		79A239141C7EE59900A3269A /* TimeLineAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A239131C7EE59900A3269A /* TimeLineAnimation.m */; };
 		79FBBC5C1C76F4E5000FFC73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBBC5B1C76F4E5000FFC73 /* main.m */; };
 		79FBBC5F1C76F4E5000FFC73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBBC5E1C76F4E5000FFC73 /* AppDelegate.m */; };
 		79FBBC621C76F4E5000FFC73 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FBBC611C76F4E5000FFC73 /* ViewController.m */; };
@@ -230,6 +231,8 @@
 		79011B7B1C7C41B600108B52 /* TransformationMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TransformationMatrix.cpp; path = WebCore/TransformationMatrix.cpp; sourceTree = "<group>"; };
 		79011B7C1C7C41B600108B52 /* TransformationMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformationMatrix.h; path = WebCore/TransformationMatrix.h; sourceTree = "<group>"; };
 		79011B7D1C7C41B600108B52 /* UnitBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitBezier.h; path = WebCore/UnitBezier.h; sourceTree = "<group>"; };
+		79A239121C7EE59900A3269A /* TimeLineAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineAnimation.h; sourceTree = "<group>"; };
+		79A239131C7EE59900A3269A /* TimeLineAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineAnimation.m; sourceTree = "<group>"; };
 		79FBBC571C76F4E5000FFC73 /* TimelineProgress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimelineProgress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79FBBC5B1C76F4E5000FFC73 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		79FBBC5D1C76F4E5000FFC73 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -556,6 +559,8 @@
 				79FBBC771C76F9C7000FFC73 /* TimeLineAtom.h */,
 				79FBBC781C76F9C7000FFC73 /* TimeLineAtom.m */,
 				79FBBC7F1C7719AE000FFC73 /* TimelineMarco.h */,
+				79A239121C7EE59900A3269A /* TimeLineAnimation.h */,
+				79A239131C7EE59900A3269A /* TimeLineAnimation.m */,
 			);
 			name = Timeline;
 			sourceTree = "<group>";
@@ -672,6 +677,7 @@
 				79011B681C7C3F1300108B52 /* POPAnimatableProperty.mm in Sources */,
 				79011B6A1C7C3F1300108B52 /* POPAnimationEvent.mm in Sources */,
 				79011A981C7C080A00108B52 /* JSQMessagesLoadEarlierHeaderView.m in Sources */,
+				79A239141C7EE59900A3269A /* TimeLineAnimation.m in Sources */,
 				79011B731C7C3F1300108B52 /* POPGeometry.mm in Sources */,
 				79011A7A1C7C080A00108B52 /* UIView+JSQMessages.m in Sources */,
 				79011B781C7C3F1300108B52 /* POPVector.mm in Sources */,
