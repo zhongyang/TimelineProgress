@@ -62,7 +62,7 @@
             }];
         } else {
             CGRect originFrame = CGRectMake(lineView.left, lineView.top, lineView.width, 0);
-            [TimeLineAnimation addFrameAnimation:lineView originFrame:originFrame destFrame:lineView.frame duration:0.5f complete:^{
+            [TimeLineAnimation addFrameSpringAnimation:lineView originFrame:originFrame destFrame:lineView.frame duration:0.5f complete:^{
                 [TimeLineAnimation addAlphaAnimation:imageView originAlpha:0.0f destAlpha:1.0f duration:0.5f complete:^{
                     __bool_block_return(finish, YES);
                 }];

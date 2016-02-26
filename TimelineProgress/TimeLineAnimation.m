@@ -30,6 +30,27 @@
     [view.layer pop_addAnimation:opacityAnimation forKey:@"opacityAnimation"];
 }
 
+
++ (void)addFrameSpringAnimation:(UIView *)view
+                    originFrame:(CGRect)originFrame
+                      destFrame:(CGRect)destFrame
+                       duration:(CGFloat)duration
+                       complete:(void (^)(void))completed {
+    POPSpringAnimation *opacityAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+    opacityAnimation.fromValue = [NSValue valueWithCGRect:originFrame];;
+    opacityAnimation.toValue = [NSValue valueWithCGRect:destFrame];;
+    opacityAnimation.springBounciness = 15;
+    opacityAnimation.springSpeed = 36;
+
+    opacityAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {
+        if (completed) {
+            completed();
+        }
+    };
+
+    [view.layer pop_addAnimation:opacityAnimation forKey:@"opacityAnimation"];
+}
+
 + (void)addFrameAnimation:(UIView *)view
               originFrame:(CGRect)originFrame
                 destFrame:(CGRect)destFrame

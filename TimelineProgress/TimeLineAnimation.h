@@ -16,6 +16,11 @@
                  duration:(CGFloat)duration
                  complete:(void (^)(void))completed;
 
++ (void)addFrameSpringAnimation:(UIView *)view
+                    originFrame:(CGRect)originFrame
+                      destFrame:(CGRect)destFrame
+                       duration:(CGFloat)duration
+                       complete:(void (^)(void))completed;
 
 + (void)addFrameAnimation:(UIView *)view
               originFrame:(CGRect)originFrame
